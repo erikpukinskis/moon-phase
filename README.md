@@ -5,23 +5,25 @@ It can also draw a moon clock:
 ```javascript
 var moon = require("moon-phase")
 
+var moonJump = 0
+
 var highlight = moon.highlight(moonJump)
 var background = moon.background(moonJump)
 
-var theme = element.stylesheet([
-  element.style(
-    "sym",{
+var theme = webElement.stylesheet([
+  webElement.style(
+    ".theme-highlight",{
     "background": highlight+" !important"}),
-  element.style(
-    "empty, sym.logo",{
+  webElement.style(
+    ".theme-border-highlight",{
     "background": "none !important",
     "border-color": highlight+" !important"}),
-  element.style(
-    "body",{
+  webElement.style(
+    ".themed-body-color",{
     "background": background+" !important"}),
 ])
 
-var clock = bridge.partial()
+var clock = browserBridge.partial()
 
 moon.renderClock(
   clock,
